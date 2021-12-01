@@ -1,18 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import movonLogo from "../../assets/images/movonLogo.png";
 
-import { Image, Form, Input, Button, Spin, Checkbox, Space } from "antd";
+import { Image, Form, Input, Button, Spin, Space } from "antd";
+import { UserOutlined, LoadingOutlined } from "@ant-design/icons";
 import { config } from "../../config";
+import { useHistory } from "react-router";
 
 function Login() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const history = useHistory();
+
+  const onFinish = () => {
+    setIsLoading(true);
+
+    console.log(username, password);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      alert("Login successful");
+
+      history.push("/home");
+    }, 2000);
+  };
+
   return (
     <div className="login-page">
-      {/* image  */}
       <Image preview={false} className="movon-logo" src={movonLogo} alt="" />
       <div className="loginPage-formContainer">
-        {/* form box  */}
-        <Form>
+        <Form onFinish={onFinish}>
           <div className="loginForm-header">
             <span className="loginForm-text">Log In</span>
           </div>
@@ -23,13 +42,11 @@ function Login() {
               rules={[{ required: true, message: "Username is required!" }]}
             >
               <Input
-                // value={state.staffId}
-                // onChange={(e) =>
-                //   setState({ ...state, ...{ staffId: e.target.value } })
-                // }
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
-                // disabled={state.isLoading}
-                // suffix={<UserOutlined />}
+                disabled={isLoading}
+                suffix={<UserOutlined style={{ color: "#6C7077" }} />}
                 style={{ padding: 10 }}
               />
             </Form.Item>
@@ -40,18 +57,34 @@ function Login() {
               rules={[{ required: true, message: "Password is required!" }]}
             >
               <Input.Password
-                // value={state.password}
-                // onChange={(e) =>
-                //   setState({ ...state, ...{ password: e.target.value } })
-                // }
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                // disabled={state.isLoading}
+                disabled={isLoading}
                 style={{ padding: 10 }}
               />
             </Form.Item>
 
             <div className="login-button-div">
-              <Button className="login-button">LOGIN</Button>
+              <Button
+                htmlType="submit"
+                className="login-button"
+                disabled={isLoading}
+              >
+                {isLoading && (
+                  <div className="login-button-spinner">
+                    <Spin
+                      indicator={
+                        <LoadingOutlined
+                          style={{ fontSize: 24, color: "#333" }}
+                          spin
+                        />
+                      }
+                    />
+                  </div>
+                )}
+                LOGIN
+              </Button>
 
               <div className="forgot-password">Forgot Password?</div>
             </div>

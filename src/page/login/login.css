@@ -8,7 +8,7 @@
 
 .movon-logo {
   width: 100%;
-  height: 110px;
+  height: 115px;
   margin-top: 3rem;
   margin-bottom: 1.3rem;
 }
@@ -26,7 +26,7 @@
 }
 
 .loginPage-formContainer .ant-input {
-  background-color: #e8f0fe;
+  background-color: #e8f0fe !important;
 }
 .ant-input-affix-wrapper {
   background-color: #e8f0fe !important;
@@ -59,6 +59,19 @@
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #1a252f;
+  color: white;
+  border-color: #1a252f;
+}
+
+.login-button-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .forgot-password {
