@@ -63,6 +63,7 @@
 
 .forgot-password {
   font-size: 13px;
+  cursor: pointer;
 }
 
 .version-div {
