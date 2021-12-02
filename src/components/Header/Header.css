@@ -1,0 +1,27 @@
+.home-header {
+  display: flex;
+  background-color: white;
+  padding: 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  height: 7vh;
+}
+
+.home-header-logo {
+  background-color: #008176;
+  width: 12%;
+  min-width: 210px;
+  color: white;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.home-header-right {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.home-header-title {
+  font-size: 1.6rem;
+}
