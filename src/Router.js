@@ -8,15 +8,16 @@ import {
 
 import Login from "./page/login";
 import Home from "./page/home";
+import { UserProfile } from "./utility";
 
 const AppNavigator = (props) => {
-  // const ProtectedRoute = (params) => {
-  //   return UserProfile.getCredential() ? (
-  //     <Route {...params} render={() => <params.component />} />
-  //   ) : (
-  //     <Redirect to={alterPath("/login")} />
-  //   );
-  // };
+  const ProtectedRoute = (params) => {
+    return UserProfile.getCredential() ? (
+      <Route {...params} render={() => <params.component />} />
+    ) : (
+      <Redirect to="/login" />
+    );
+  };
 
   return (
     <Router>
@@ -24,11 +25,7 @@ const AppNavigator = (props) => {
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-
-        <Redirect from="/" to="/login" />
+        <ProtectedRoute path="/" component={Home} />
       </Switch>
     </Router>
   );

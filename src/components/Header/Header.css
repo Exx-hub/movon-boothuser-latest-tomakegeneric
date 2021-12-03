@@ -13,6 +13,7 @@
   color: white;
   text-align: center;
   font-size: 1.7rem;
+  cursor: pointer;
 }
 
 .home-header-right {
@@ -24,4 +25,14 @@
 
 .home-header-title {
   font-size: 1.6rem;
+}
+
+.home-header-dropdown-span {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ant-dropdown-menu {
+  transform: translate(10px, -10px);
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./login.css";
 import movonLogo from "../../assets/images/movonLogo.png";
 
+import { UserProfile } from "../../utility";
+
 import { Image, Form, Input, Button, Spin, Space } from "antd";
 import { UserOutlined, LoadingOutlined } from "@ant-design/icons";
 import { config } from "../../config";
@@ -21,6 +23,12 @@ function Login() {
     // add alerts/notifications
 
     console.log(username, password);
+
+    // hardcoded setting of creds in localstorage w/out api
+    UserProfile.setCredential({
+      user: username,
+      token: password,
+    });
 
     setTimeout(() => {
       setIsLoading(false);
