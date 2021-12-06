@@ -12,6 +12,7 @@ const { Header } = Layout;
 
 function _Header(props) {
   const history = useHistory();
+  console.log(props);
   // --- DROPDOWN MENU DATA
   const MenuData = [
     {
@@ -28,16 +29,14 @@ function _Header(props) {
       name: "Change Password",
       type: "menu",
       icon: () => <InfoCircleOutlined />,
-      action: () => console.log("clicked change password"),
-      // action: () => props.history.push("/about"),
+      action: () => props.setChangePassVisible(),
     },
     {
       key: "drop-down-logout",
       name: "Logout",
       type: "menu",
       icon: () => <PoweroffOutlined />,
-      action: () => console.log("clicked logout"),
-      // action: () => props.setVisibleLogout(),
+      action: () => props.setLogOutVisible(),
     },
   ];
 
