@@ -6,10 +6,10 @@ export const config = {
   },
   version: {
     environment: "",
-    build: "1.0.0(1)",
+    build: "1.0.0(2)",
   },
   environment: "",
-  changeLogs: `feature/home-page-build1`,
+  changeLogs: `feature/change-password-logout-modals/build2`,
 };
 
 export const ERROR_CODES = {
