@@ -1,0 +1,15 @@
+.user-profile-container {
+  padding: 40px;
+
+  background-color: white;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+.value {
+  background-color: #ebebee;
+  padding: 5px 10px;
+}
