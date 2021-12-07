@@ -12,7 +12,9 @@ const { Header } = Layout;
 
 function _Header(props) {
   const history = useHistory();
-  console.log(props);
+
+  // console.log(props);
+
   // --- DROPDOWN MENU DATA
   const MenuData = [
     {
@@ -72,7 +74,7 @@ function _Header(props) {
         MovOn
       </div>
       <div className="home-header-right">
-        <div className="home-header-title">Booking List</div>
+        <div className="home-header-title">{props.headerTitle}</div>
 
         <Dropdown overlay={menu} trigger={["click"]}>
           <span className="home-header-dropdown-span">
