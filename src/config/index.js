@@ -9,7 +9,7 @@ export const config = {
     build: "1.0.0(2)",
   },
   environment: "",
-  changeLogs: `feature/side-navigation/build2`,
+  changeLogs: `feature/searchTrips-component/build2`,
 };
 
 export const ERROR_CODES = {
