@@ -1,0 +1,9 @@
+.trips-table-container {
+  /* border: 1px solid red; */
+  padding: 40px;
+}
+
+.ant-table-pagination {
+  justify-content: center;
+  /* margin-top: 50px !important; */
+}
