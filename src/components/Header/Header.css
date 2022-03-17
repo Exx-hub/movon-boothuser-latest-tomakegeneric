@@ -12,10 +12,12 @@
   background-color: #008176;
   width: 12%;
   min-width: 210px;
-  color: white;
   text-align: center;
-  font-size: 1.7rem;
   cursor: pointer;
+}
+
+.header-logo {
+  height: 75px;
 }
 
 .home-header-right {

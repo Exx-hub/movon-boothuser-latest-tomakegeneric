@@ -10,6 +10,7 @@ import BookTicket from "../bookTicket";
 import TransactionHistory from "../transactionHistory";
 import About from "../about";
 import { ChangePassModal, LogOutModal } from "../../components/modal";
+import { config } from "../../config";
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -44,29 +45,33 @@ function Home() {
         />
         <Layout className="home-body">
           <Sider width={210} className="home-sider">
-            <Menu theme="dark" mode="inline" selectedKeys={[pathname]}>
-              <Menu.Item
-                key={"/book-ticket"}
-                onClick={() => history.push("/")}
-                style={{ margin: 0, height: 50 }}
-              >
-                Book Ticket
-              </Menu.Item>
-              <Menu.Item
-                key={"/transactions"}
-                onClick={() => history.push("/transactions")}
-                style={{ margin: 0, height: 50 }}
-              >
-                Transaction History
-              </Menu.Item>
-              <Menu.Item
-                key={"/about"}
-                onClick={() => history.push("/about")}
-                style={{ margin: 0, height: 50 }}
-              >
-                About
-              </Menu.Item>
-            </Menu>
+            <div className="sider-container">
+              <Menu theme="dark" mode="inline" selectedKeys={[pathname]}>
+                <Menu.Item
+                  key={"/book-ticket"}
+                  onClick={() => history.push("/")}
+                  style={{ margin: 0, height: 50 }}
+                >
+                  Book Ticket
+                </Menu.Item>
+                <Menu.Item
+                  key={"/transactions"}
+                  onClick={() => history.push("/transactions")}
+                  style={{ margin: 0, height: 50 }}
+                >
+                  Transaction History
+                </Menu.Item>
+                <Menu.Item
+                  key={"/about"}
+                  onClick={() => history.push("/about")}
+                  style={{ margin: 0, height: 50 }}
+                >
+                  About
+                </Menu.Item>
+              </Menu>
+
+              <div className="sider-version">build {config.version.build}</div>
+            </div>
           </Sider>
 
           <Layout className="home-content">
