@@ -12,6 +12,7 @@ function LogOutModal(props) {
     <Modal
       visible={props.visible}
       className="logout-modal"
+      onCancel={props.handleCancel}
       footer={[
         <Button className="cancel-btn" onClick={props.handleCancel}>
           Cancel

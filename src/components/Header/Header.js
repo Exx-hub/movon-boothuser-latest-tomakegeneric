@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.css";
-import { Button, Menu, Dropdown, Layout } from "antd";
+import { Button, Menu, Dropdown, Layout, Image } from "antd";
 import {
   DownOutlined,
   UserOutlined,
   InfoCircleOutlined,
   PoweroffOutlined,
 } from "@ant-design/icons";
+import movonLogo from "../../assets/images/movonLogo.png";
 import { useHistory } from "react-router";
 const { Header } = Layout;
 
@@ -71,8 +72,9 @@ function _Header(props) {
   return (
     <Header className="home-header">
       <div className="home-header-logo" onClick={() => history.push("/")}>
-        MovOn
+        <Image preview={false} className="header-logo" src={movonLogo} alt="" />
       </div>
+
       <div className="home-header-right">
         <div className="home-header-title">{props.headerTitle}</div>
 

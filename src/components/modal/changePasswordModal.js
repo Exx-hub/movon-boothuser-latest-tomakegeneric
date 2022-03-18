@@ -23,6 +23,7 @@ function ChangePasswordModal(props) {
       title="Change Password"
       visible={props.visible}
       className="change-password-modal"
+      onCancel={props.handleCancel}
       footer={false}
     >
       <Form onFinish={handleOk}>
