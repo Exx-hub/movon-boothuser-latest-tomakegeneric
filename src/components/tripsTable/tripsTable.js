@@ -35,10 +35,16 @@ const tableSource = [
     align: "center",
   },
   {
+    title: "Seats Left",
+    dataIndex: "seatsLeft",
+    key: "seatsLeft",
+    align: "center",
+  },
+  {
     title: "Action",
     key: "action",
     align: "center",
-    render: () => <Button>View</Button>,
+    render: () => <Button>View Seats</Button>,
   },
 ];
 
@@ -49,6 +55,7 @@ const dataSource = [
     endStation: "DAET",
     startDate: "09/12/2021 06:00 PM",
     selectedBus: "00-00-11",
+    seatsLeft: 10,
   },
   {
     tripId: "TPIKYTBT8O36",
@@ -56,6 +63,7 @@ const dataSource = [
     endStation: "DAET",
     startDate: "09/12/2021 06:00 PM",
     selectedBus: "00-00-11",
+    seatsLeft: 2,
   },
   {
     tripId: "TPIKYTBT8O36",
@@ -63,6 +71,7 @@ const dataSource = [
     endStation: "DAET",
     startDate: "09/12/2021 06:00 PM",
     selectedBus: "00-00-11",
+    seatsLeft: "FULL",
   },
   {
     tripId: "TPIKYTBT8O36",
@@ -70,6 +79,7 @@ const dataSource = [
     endStation: "DAET",
     startDate: "09/12/2021 06:00 PM",
     selectedBus: "00-00-11",
+    seatsLeft: 2,
   },
 ];
 
