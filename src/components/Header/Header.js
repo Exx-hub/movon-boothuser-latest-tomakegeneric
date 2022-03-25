@@ -76,6 +76,7 @@ function _Header(props) {
       </div>
 
       <div className="home-header-right">
+        {/* {props.headerTitle === "Booking Details" && <div>12</div>} */}
         <div className="home-header-title">{props.headerTitle}</div>
 
         <Dropdown overlay={menu} trigger={["click"]}>

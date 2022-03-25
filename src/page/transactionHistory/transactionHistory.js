@@ -73,6 +73,7 @@ const dataSource = [
     paymentType: "walk-in",
     tripId: "T-ABC123",
     ticketStatus: "Confirmed",
+    key: 0,
   },
   {
     ticketId: "122345",
@@ -83,6 +84,7 @@ const dataSource = [
     paymentType: "walk-in",
     tripId: "T-ABC123",
     ticketStatus: "Pending",
+    key: 1,
   },
   {
     ticketId: "133456",
@@ -93,6 +95,7 @@ const dataSource = [
     paymentType: "online",
     tripId: "T-ABC123",
     ticketStatus: "Confirmed",
+    key: 2,
   },
   {
     ticketId: "144567",
@@ -103,6 +106,7 @@ const dataSource = [
     paymentType: "online",
     tripId: "T-ABC123",
     ticketStatus: "Cancelled",
+    key: 3,
   },
 ];
 
