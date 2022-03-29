@@ -1,5 +1,4 @@
 .booking-details-container {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
 
@@ -7,6 +6,7 @@
 }
 .booking-details-left {
   margin-right: 5px;
+  flex: 1;
 }
 
 .legend {
@@ -39,6 +39,7 @@
 }
 .booking-details-right {
   margin-left: 5px;
+  flex: 1;
 }
 
 .booking-details-right span {
@@ -57,13 +58,22 @@
 .ticket-info {
   border: 1px solid lightgray;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   background-color: white;
 }
 .passenger-details {
   border: 1px solid lightgray;
-  height: 400px;
+  /* height: 200px; */
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+.contact-details {
+  border: 1px solid lightgray;
+  /* height: 190px; */
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
   background-color: white;

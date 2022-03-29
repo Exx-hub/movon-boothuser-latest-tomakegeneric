@@ -1,4 +1,4 @@
-import { Layout, Image } from "antd";
+import { Layout, Image, Input } from "antd";
 import React from "react";
 import "./bookingDetails.css";
 import { useLocation } from "react-router-dom";
@@ -74,8 +74,20 @@ function BookingDetails() {
             <span>Total Fare: </span> ₱ 0.00
           </div>
         </div>
+        <div className="contact-details">
+          <h2>Contact Details:</h2>
+          <div>Email</div>
+          <Input />
+          <div>Mobile Number</div>
+          <Input />
+        </div>
         <div className="passenger-details">
           <h2>Passenger Details:</h2>
+          <Input placeholder="Enter Full Name" />
+          {/* <Input placeholder="Enter Full Name" /> */}
+          {/* <Input placeholder="Enter Full Name" /> */}
+          {/* <Input placeholder="Enter Full Name" /> */}
+          {/* <Input placeholder="Enter Full Name" /> */}
         </div>
       </Layout>
     </Layout>
