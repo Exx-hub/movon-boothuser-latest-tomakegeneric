@@ -1,11 +1,10 @@
 .booking-details-container {
   display: flex;
+  flex-direction: row;
 
   padding: 10px;
   height: 93vh;
-
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 .booking-details-left {
   margin-right: 5px;
@@ -39,11 +38,12 @@
 }
 .seat-map {
   border: 1px solid lightgray;
-  /* height: 100%; */
+
   border-radius: 10px;
   background-color: white;
   flex: 1;
 }
+
 .booking-details-right {
   margin-left: 5px;
   flex: 1;
