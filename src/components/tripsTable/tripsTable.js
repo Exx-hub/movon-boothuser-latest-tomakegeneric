@@ -28,8 +28,8 @@ function TripsTable() {
     },
     {
       tripId: "EFG123",
-      startStation: "PITX / TURBINA",
-      endStation: "DAET",
+      startStation: "DLTB GMA",
+      endStation: "DLTB LEGAZPI",
       startDate: "09/12/2021 06:00 PM",
       selectedBus: "00-00-11",
       seatsLeft: 2,
@@ -37,8 +37,8 @@ function TripsTable() {
     },
     {
       tripId: "HIJ123",
-      startStation: "PITX / TURBINA",
-      endStation: "DAET",
+      startStation: "PITX",
+      endStation: "CAMARINES SUR",
       startDate: "09/12/2021 06:00 PM",
       selectedBus: "00-00-11",
       seatsLeft: "FULL",
@@ -46,8 +46,8 @@ function TripsTable() {
     },
     {
       tripId: "KLM123",
-      startStation: "PITX / TURBINA",
-      endStation: "DAET",
+      startStation: "DLTB PASAY",
+      endStation: "NAGA",
       startDate: "09/12/2021 06:00 PM",
       selectedBus: "00-00-11",
       seatsLeft: 2,
