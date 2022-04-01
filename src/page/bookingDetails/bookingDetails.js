@@ -13,10 +13,13 @@ const { Content } = Layout;
 function BookingDetails() {
   const location = useLocation();
 
-  console.log(location);
+  // console.log(location);
   const { tripDetails } = location.state;
 
-  const [noOfSeats, setNoOfSeats] = useState(5);
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  console.log(selectedSeats);
+  const [seatsTaken] = useState(["6", "7"]);
+  const [seniorSeats] = useState([]);
   return (
     <Layout>
       <Content className="booking-details-container">
@@ -40,7 +43,12 @@ function BookingDetails() {
             </div>
           </div>
           <div className="seat-map">
-            <SeatmapDefault />
+            <SeatmapDefault
+              selectedSeats={selectedSeats}
+              setSelectedSeats={setSelectedSeats}
+              seatsTaken={seatsTaken}
+              seniorSeats={seniorSeats}
+            />
           </div>
         </div>
         <div className="booking-details-right">
@@ -91,10 +99,18 @@ function BookingDetails() {
             <h2>Passenger Details:</h2>
 
             <Input placeholder="Passenger 1 Full Name" />
-            {noOfSeats > 1 && <Input placeholder="Passenger 2 Full Name" />}
-            {noOfSeats > 2 && <Input placeholder="Passenger 3 Full Name" />}
-            {noOfSeats > 3 && <Input placeholder="Passenger 4 Full Name" />}
-            {noOfSeats > 4 && <Input placeholder="Passenger 5 Full Name" />}
+            {selectedSeats.length > 1 && (
+              <Input placeholder="Passenger 2 Full Name" />
+            )}
+            {selectedSeats.length > 2 && (
+              <Input placeholder="Passenger 3 Full Name" />
+            )}
+            {selectedSeats.length > 3 && (
+              <Input placeholder="Passenger 4 Full Name" />
+            )}
+            {selectedSeats.length > 4 && (
+              <Input placeholder="Passenger 5 Full Name" />
+            )}
             <Button className="book-button">Book</Button>
           </div>
         </div>

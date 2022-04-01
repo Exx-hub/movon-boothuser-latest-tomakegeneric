@@ -19,11 +19,24 @@
     width: 55px;
 
     cursor: pointer;
+    
 }
 
-.seat-div img {
-    /* background-color: teal; */
-    /* background-color: #9CE8B2; */
+.available {
+    background-color: white;
+}
+.senior {
+    background-color: #FAD8B3;
+}
+.selected {
+    background-color: #9CE8B2;
+    
+}
+.reserved {
+    background-color: #DDDDDD;
+}
+.no-cursor {
+    cursor: not-allowed;
 }
 
 .middle-seat {
