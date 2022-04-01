@@ -6,6 +6,7 @@ import senior from "../../assets/images/senior-citizen.png";
 import available from "../../assets/images/emptySeat.png";
 import selected from "../../assets/images/selected.png";
 import booked from "../../assets/images/bookedSeat.png";
+import SeatmapDefault from "../../components/Seatmap";
 
 const { Content } = Layout;
 
@@ -38,7 +39,9 @@ function BookingDetails() {
               Selected
             </div>
           </div>
-          <div className="seat-map">SEAT MAP</div>
+          <div className="seat-map">
+            <SeatmapDefault />
+          </div>
         </div>
         <div className="booking-details-right">
           <div className="trip-info">

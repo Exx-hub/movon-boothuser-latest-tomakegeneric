@@ -15,7 +15,6 @@ import { ChangePassModal, LogOutModal } from "../../components/modal";
 import { config } from "../../config";
 
 const { Content, Sider } = Layout;
-const { SubMenu } = Menu;
 
 function Home() {
   const [changePassVisible, setChangePassVisible] = useState(false);

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { Button, Menu, Dropdown, Layout, Image } from "antd";
+import { Menu, Dropdown, Layout, Image } from "antd";
 import {
   DownOutlined,
   UserOutlined,

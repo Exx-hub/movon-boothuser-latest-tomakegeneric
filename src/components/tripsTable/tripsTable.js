@@ -1,7 +1,7 @@
 import React from "react";
 import "./TripsTable.css";
 
-import { Table, Button, Input } from "antd";
+import { Table, Button } from "antd";
 
 import { useHistory } from "react-router-dom";
 
