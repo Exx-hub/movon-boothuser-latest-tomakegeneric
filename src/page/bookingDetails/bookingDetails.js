@@ -16,10 +16,14 @@ function BookingDetails() {
   // console.log(location);
   const { tripDetails } = location.state;
 
+  // selected seats array filled by clicking seats in seatmap component and passed to api for booking
+  // along with passenger details, fare, and contact details
   const [selectedSeats, setSelectedSeats] = useState([]);
   console.log(selectedSeats);
-  const [seatsTaken] = useState(["6", "7"]);
-  const [seniorSeats] = useState([]);
+  // from api get seats already taken
+  const [seatsTaken] = useState([""]);
+  // from api get seats reserved for senior
+  const [seniorSeats] = useState([""]);
   return (
     <Layout>
       <Content className="booking-details-container">

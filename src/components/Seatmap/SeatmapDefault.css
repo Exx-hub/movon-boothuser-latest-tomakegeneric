@@ -18,8 +18,11 @@
     height: 50px;
     width: 55px;
 
-    cursor: pointer;
-    
+    cursor: pointer;  
+}
+
+.no-cursor {
+    cursor: not-allowed;
 }
 
 .available {
@@ -35,9 +38,7 @@
 .reserved {
     background-color: #DDDDDD;
 }
-.no-cursor {
-    cursor: not-allowed;
-}
+
 
 .middle-seat {
     margin: 0 10px
