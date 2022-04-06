@@ -21,9 +21,9 @@ function BookingDetails() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   console.log(selectedSeats);
   // from api get seats already taken
-  const [seatsTaken] = useState([""]);
+  const [seatsTaken] = useState(["6", "7"]);
   // from api get seats reserved for senior
-  const [seniorSeats] = useState([""]);
+  const [seniorSeats] = useState(["1", "2", "3", "4"]);
   return (
     <Layout>
       <Content className="booking-details-container">

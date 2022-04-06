@@ -23,8 +23,8 @@ function SeatmapDefault(props) {
     let filtered;
     if (
       !selectedSeats.includes(seatNumber) &&
-      !seatsTaken.includes(seatNumber)
-      // && selectedSeats.length < 5
+      !seatsTaken.includes(seatNumber) &&
+      selectedSeats.length < 5
     ) {
       setSelectedSeats([...selectedSeats, seatNumber]);
     } else if (selectedSeats.includes(seatNumber)) {
@@ -34,7 +34,9 @@ function SeatmapDefault(props) {
   };
 
   const getClassName = (seatNumber) => {
-    return seatsTaken.includes(seatNumber) ? "seat-div no-cursor" : "seat-div";
+    return seatsTaken.includes(seatNumber) || seniorSeats.includes(seatNumber)
+      ? "seat-div no-cursor"
+      : "seat-div";
   };
 
   const getSeatImage = (seatNumber) => {
@@ -54,23 +56,43 @@ function SeatmapDefault(props) {
       {/* 1-4  */}
       <div className="seats-row">
         <div className="dual-seat-left">
-          <div className="seat-div">
-            <Image src={senior} alt="" preview={false} />
-            <div className="seat-number">1</div>
+          <div className={getClassName("1")}>
+            <Image src={getSeatImage("1")} alt="" preview={false} />
+            <div
+              className="seat-number"
+              onClick={(e) => selectSeat(e.target.textContent)}
+            >
+              1
+            </div>
           </div>
-          <div className="seat-div">
-            <Image src={senior} alt="" preview={false} />
-            <div className="seat-number">2</div>
+          <div className={getClassName("2")}>
+            <Image src={getSeatImage("2")} alt="" preview={false} />
+            <div
+              className="seat-number"
+              onClick={(e) => selectSeat(e.target.textContent)}
+            >
+              2
+            </div>
           </div>
         </div>
         <div className="dual-seat-right">
-          <div className="seat-div">
-            <Image src={senior} alt="" preview={false} />
-            <div className="seat-number">3</div>
+          <div className={getClassName("3")}>
+            <Image src={getSeatImage("3")} alt="" preview={false} />
+            <div
+              className="seat-number"
+              onClick={(e) => selectSeat(e.target.textContent)}
+            >
+              3
+            </div>
           </div>
-          <div onClick={(e) => console.log(e)} className="seat-div">
-            <Image src={senior} alt="" preview={false} />
-            <div className="seat-number">4</div>
+          <div className={getClassName("4")}>
+            <Image src={getSeatImage("4")} alt="" preview={false} />
+            <div
+              className="seat-number"
+              onClick={(e) => selectSeat(e.target.textContent)}
+            >
+              4
+            </div>
           </div>
         </div>
       </div>
