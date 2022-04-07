@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./SeatmapDefault.css";
 
 import { Image } from "antd";
@@ -11,10 +11,6 @@ import booked from "../../assets/images/bookedSeat.png";
 // import available from "../../assets/images/seat.png";
 
 function SeatmapDefault(props) {
-  // useEffect(() => {
-  //   console.log(selectedSeats);
-  // }, [selectedSeats]);
-
   const { selectedSeats, seatsTaken, setSelectedSeats, seniorSeats } = props;
   // console.log(selectedSeats.length < 5);
   // console.log(selectedSeats.length);

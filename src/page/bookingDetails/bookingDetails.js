@@ -19,11 +19,42 @@ function BookingDetails() {
   // selected seats array filled by clicking seats in seatmap component and passed to api for booking
   // along with passenger details, fare, and contact details
   const [selectedSeats, setSelectedSeats] = useState([]);
-  console.log(selectedSeats);
+  // console.log(selectedSeats);
   // from api get seats already taken
   const [seatsTaken] = useState(["6", "7"]);
   // from api get seats reserved for senior
   const [seniorSeats] = useState(["1", "2", "3", "4"]);
+
+  const [farePerSeat] = useState(633);
+
+  const [contactDetails, setContactDetails] = useState({
+    email: "",
+    mobileNumber: "",
+  });
+
+  // console.log(contactDetails);
+
+  const [passengerDetails, setPassengerDetails] = useState({
+    passenger1: "",
+    passenger2: "",
+    passenger3: "",
+    passenger4: "",
+    passenger5: "",
+  });
+
+  const bookSeat = () => {
+    let data = [selectedSeats, contactDetails, passengerDetails];
+
+    console.log(data);
+  };
+
+  const passengerNameChange = (e) => {
+    const { name, value } = e.target;
+    setPassengerDetails({
+      ...passengerDetails,
+      [name]: value,
+    });
+  };
   return (
     <Layout>
       <Content className="booking-details-container">
@@ -80,42 +111,96 @@ function BookingDetails() {
           <div className="ticket-info">
             <h2>Booking Info:</h2>
             <div>
-              <span>Fare per Seat: </span> ₱567.00
+              <span>Fare per Seat: </span> ₱{farePerSeat.toFixed(2)}
             </div>
             <div>
-              <span>Selected Seats:</span> --
+              <span>Selected Seats:</span>{" "}
+              {selectedSeats.length > 0
+                ? selectedSeats.map((seat, i) => (
+                    <span key={i} className="selected-seats">
+                      {seat} &nbsp;
+                    </span>
+                  ))
+                : "Select a seat"}
             </div>
             <div>
-              <span>No. of Tickets: </span> 0
+              <span>No. of Tickets: </span> {selectedSeats.length}
             </div>
             <div>
-              <span>Total Fare: </span> ₱ 0.00
+              <span>Total Fare: </span> ₱{" "}
+              {(farePerSeat * selectedSeats.length).toFixed(2)}
             </div>
           </div>
           <div className="contact-details">
             <h2>Contact Details:</h2>
             <div>Email</div>
-            <Input placeholder="Customer's Email Address" />
+            <Input
+              placeholder="Customer's Email Address"
+              value={contactDetails.email}
+              onChange={(e) =>
+                setContactDetails({ ...contactDetails, email: e.target.value })
+              }
+            />
             <div>Mobile Number</div>
-            <Input placeholder="Customer's Mobile Number" />
+            <Input
+              placeholder="Customer's Mobile Number"
+              value={contactDetails.mobileNumber}
+              onChange={(e) =>
+                setContactDetails({
+                  ...contactDetails,
+                  mobileNumber: e.target.value,
+                })
+              }
+            />
           </div>
           <div className="passenger-details">
             <h2>Passenger Details:</h2>
 
-            <Input placeholder="Passenger 1 Full Name" />
+            <Input
+              placeholder="Passenger 1 Full Name"
+              name="passenger1"
+              value={passengerDetails.passenger1}
+              onChange={passengerNameChange}
+            />
             {selectedSeats.length > 1 && (
-              <Input placeholder="Passenger 2 Full Name" />
+              <Input
+                placeholder="Passenger 2 Full Name"
+                name="passenger2"
+                value={passengerDetails.passenger2}
+                onChange={passengerNameChange}
+              />
             )}
             {selectedSeats.length > 2 && (
-              <Input placeholder="Passenger 3 Full Name" />
+              <Input
+                placeholder="Passenger 3 Full Name"
+                name="passenger3"
+                value={passengerDetails.passenger3}
+                onChange={passengerNameChange}
+              />
             )}
             {selectedSeats.length > 3 && (
-              <Input placeholder="Passenger 4 Full Name" />
+              <Input
+                placeholder="Passenger 4 Full Name"
+                name="passenger4"
+                value={passengerDetails.passenger4}
+                onChange={passengerNameChange}
+              />
             )}
             {selectedSeats.length > 4 && (
-              <Input placeholder="Passenger 5 Full Name" />
+              <Input
+                placeholder="Passenger 5 Full Name"
+                name="passenger5"
+                value={passengerDetails.passenger5}
+                onChange={passengerNameChange}
+              />
             )}
-            <Button className="book-button">Book</Button>
+            <Button
+              className="book-button"
+              onClick={bookSeat}
+              disabled={selectedSeats.length < 1}
+            >
+              Book
+            </Button>
           </div>
         </div>
       </Content>

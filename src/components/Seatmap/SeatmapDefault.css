@@ -71,3 +71,8 @@
     display: flex;
     align-items: center;
 }
+
+.selected-seats {
+    color: #333 !important;
+    font-weight: bolder !important;
+}
