@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Image, Input, Button } from "antd";
+import { Layout, Image, Input, Button, Form } from "antd";
 import "./bookingDetails.css";
 import { useLocation } from "react-router-dom";
 import senior from "../../assets/images/senior-citizen.png";
@@ -55,6 +55,7 @@ function BookingDetails() {
       [name]: value,
     });
   };
+
   return (
     <Layout>
       <Content className="booking-details-container">
@@ -131,77 +132,149 @@ function BookingDetails() {
               {(farePerSeat * selectedSeats.length).toFixed(2)}
             </div>
           </div>
-          <div className="contact-details">
-            <h2>Contact Details:</h2>
-            <div>Email</div>
-            <Input
-              placeholder="Customer's Email Address"
-              value={contactDetails.email}
-              onChange={(e) =>
-                setContactDetails({ ...contactDetails, email: e.target.value })
-              }
-            />
-            <div>Mobile Number</div>
-            <Input
-              placeholder="Customer's Mobile Number"
-              value={contactDetails.mobileNumber}
-              onChange={(e) =>
-                setContactDetails({
-                  ...contactDetails,
-                  mobileNumber: e.target.value,
-                })
-              }
-            />
-          </div>
-          <div className="passenger-details">
-            <h2>Passenger Details:</h2>
+          <Form onFinish={bookSeat}>
+            <div className="contact-details">
+              <h2>Contact Details:</h2>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "email is required!",
+                  },
+                ]}
+              >
+                <Input
+                  name="email"
+                  placeholder="Customer's Email Address"
+                  value={contactDetails.email}
+                  onChange={(e) =>
+                    setContactDetails({
+                      ...contactDetails,
+                      email: e.target.value,
+                    })
+                  }
+                />
+              </Form.Item>
 
-            <Input
-              placeholder="Passenger 1 Full Name"
-              name="passenger1"
-              value={passengerDetails.passenger1}
-              onChange={passengerNameChange}
-            />
-            {selectedSeats.length > 1 && (
-              <Input
-                placeholder="Passenger 2 Full Name"
-                name="passenger2"
-                value={passengerDetails.passenger2}
-                onChange={passengerNameChange}
-              />
-            )}
-            {selectedSeats.length > 2 && (
-              <Input
-                placeholder="Passenger 3 Full Name"
-                name="passenger3"
-                value={passengerDetails.passenger3}
-                onChange={passengerNameChange}
-              />
-            )}
-            {selectedSeats.length > 3 && (
-              <Input
-                placeholder="Passenger 4 Full Name"
-                name="passenger4"
-                value={passengerDetails.passenger4}
-                onChange={passengerNameChange}
-              />
-            )}
-            {selectedSeats.length > 4 && (
-              <Input
-                placeholder="Passenger 5 Full Name"
-                name="passenger5"
-                value={passengerDetails.passenger5}
-                onChange={passengerNameChange}
-              />
-            )}
-            <Button
-              className="book-button"
-              onClick={bookSeat}
-              disabled={selectedSeats.length < 1}
-            >
-              Book
-            </Button>
-          </div>
+              <Form.Item
+                name="mobileNumber"
+                rules={[
+                  { required: true, message: "Mobile Number is required!" },
+                ]}
+              >
+                <Input
+                  placeholder="Customer's Mobile Number"
+                  value={contactDetails.mobileNumber}
+                  onChange={(e) =>
+                    setContactDetails({
+                      ...contactDetails,
+                      mobileNumber: e.target.value,
+                    })
+                  }
+                />
+              </Form.Item>
+            </div>
+            <div className="passenger-details">
+              <h2>Passenger Details:</h2>
+
+              <Form.Item
+                name="passenger1"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter name of passenger!",
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Passenger 1 Full Name"
+                  name="passenger1"
+                  value={passengerDetails.passenger1}
+                  onChange={passengerNameChange}
+                />
+              </Form.Item>
+              {selectedSeats.length > 1 && (
+                <Form.Item
+                  name="passenger2"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter name of passenger!",
+                    },
+                  ]}
+                >
+                  <Input
+                    placeholder="Passenger 2 Full Name"
+                    name="passenger2"
+                    value={passengerDetails.passenger2}
+                    onChange={passengerNameChange}
+                  />
+                </Form.Item>
+              )}
+              {selectedSeats.length > 2 && (
+                <Form.Item
+                  name="passenger3"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter name of passenger!",
+                    },
+                  ]}
+                >
+                  <Input
+                    placeholder="Passenger 3 Full Name"
+                    name="passenger3"
+                    value={passengerDetails.passenger3}
+                    onChange={passengerNameChange}
+                  />
+                </Form.Item>
+              )}
+              {selectedSeats.length > 3 && (
+                <Form.Item
+                  name="passenger4"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter name of passenger!",
+                    },
+                  ]}
+                >
+                  <Input
+                    placeholder="Passenger 4 Full Name"
+                    name="passenger4"
+                    value={passengerDetails.passenger4}
+                    onChange={passengerNameChange}
+                  />
+                </Form.Item>
+              )}
+              {selectedSeats.length > 4 && (
+                <Form.Item
+                  name="passenger5"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter name of passenger!",
+                    },
+                  ]}
+                >
+                  <Input
+                    placeholder="Passenger 5 Full Name"
+                    name="passenger5"
+                    value={passengerDetails.passenger5}
+                    onChange={passengerNameChange}
+                  />
+                </Form.Item>
+              )}
+              <Button
+                className="book-button"
+                htmlType="submit"
+                disabled={selectedSeats.length < 1}
+              >
+                Book
+              </Button>
+            </div>
+          </Form>
         </div>
       </Content>
     </Layout>

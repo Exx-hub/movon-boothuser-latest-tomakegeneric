@@ -80,7 +80,7 @@
   background-color: white;
 }
 .contact-details input {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 .passenger-details {
   border: 1px solid lightgray;
@@ -93,7 +93,7 @@
 }
 
 .passenger-details input {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .book-button {
@@ -104,4 +104,9 @@
   /* border-color: teal;*/
   background-color: teal;
   color: white;
+}
+
+
+.booking-details-container .ant-row {
+  margin-bottom: 0;
 }
