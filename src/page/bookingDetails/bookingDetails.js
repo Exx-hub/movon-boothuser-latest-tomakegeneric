@@ -7,6 +7,7 @@ import available from "../../assets/images/emptySeat.png";
 import selected from "../../assets/images/selected.png";
 import booked from "../../assets/images/bookedSeat.png";
 import SeatmapDefault from "../../components/Seatmap";
+import ConfirmModal from "../../components/modal/confirmModal";
 
 const { Content } = Layout;
 
@@ -42,18 +43,50 @@ function BookingDetails() {
     passenger5: "",
   });
 
-  const bookSeat = () => {
-    let data = [selectedSeats, contactDetails, passengerDetails];
+  // confirm modal state
+  const [summaryVisible, setSummaryVisible] = useState(false);
+  // passengerArray with name and seat no
+  const [passengerArray, setPassengerArray] = useState([]);
+  // console.log(passengerArray);
 
-    console.log(data);
+  // toggles confirm modal, passes passenger list as array with name and seat number.
+  const goToConfirm = () => {
+    const passengerArray = Object.values(passengerDetails);
+
+    const arr = selectedSeats.map((e, i) => {
+      return {
+        seat: e,
+        passenger: passengerArray[i],
+        key: i,
+      };
+    });
+
+    // console.log(arr);
+    setPassengerArray(arr);
+    setSummaryVisible(true);
   };
 
+  // passenger name change
   const passengerNameChange = (e) => {
     const { name, value } = e.target;
     setPassengerDetails({
       ...passengerDetails,
       [name]: value,
     });
+  };
+
+  // book seat after confirm modal
+  const bookSeat = () => {
+    let data = [selectedSeats, contactDetails, Object.values(passengerDetails)]; // or passenger array?
+
+    // let passedData = {
+    //   selectedSeats,
+    //   contactDetails,
+    //   passengerArray
+    // }
+
+    console.log(data);
+    setSummaryVisible(false);
   };
 
   return (
@@ -132,7 +165,7 @@ function BookingDetails() {
               {(farePerSeat * selectedSeats.length).toFixed(2)}
             </div>
           </div>
-          <Form onFinish={bookSeat}>
+          <Form onFinish={goToConfirm}>
             <div className="contact-details">
               <h2>Contact Details:</h2>
               <Form.Item
@@ -277,6 +310,14 @@ function BookingDetails() {
           </Form>
         </div>
       </Content>
+
+      <ConfirmModal
+        visible={summaryVisible}
+        handleCancel={() => setSummaryVisible(false)}
+        handleOk={bookSeat}
+        tripDetails={tripDetails}
+        passengerDetails={passengerArray}
+      />
     </Layout>
   );
 }
