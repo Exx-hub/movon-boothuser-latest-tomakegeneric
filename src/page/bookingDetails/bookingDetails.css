@@ -101,12 +101,16 @@
   margin-bottom: 10px;
   align-self: flex-end;
   width: 150px;
-  /* border-color: teal;*/
-  background-color: teal;
+  height: 30px;
+  border: 1px solid #008176;
+  background-color: #008176;
   color: white;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 
 .booking-details-container .ant-row {
   margin-bottom: 0;
 }
+

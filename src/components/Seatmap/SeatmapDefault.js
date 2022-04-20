@@ -22,7 +22,7 @@ function SeatmapDefault(props) {
       !seatsTaken.includes(seatNumber) &&
       selectedSeats.length < 5
     ) {
-      setSelectedSeats([...selectedSeats, seatNumber]);
+      setSelectedSeats([...selectedSeats, seatNumber].sort((a, b) => a - b));
     } else if (selectedSeats.includes(seatNumber)) {
       filtered = selectedSeats.filter((num) => num !== seatNumber);
       setSelectedSeats(filtered);

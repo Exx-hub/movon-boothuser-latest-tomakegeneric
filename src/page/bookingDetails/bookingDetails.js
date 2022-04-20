@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Layout, Image, Input, Button, Form } from "antd";
 import "./bookingDetails.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import senior from "../../assets/images/senior-citizen.png";
 import available from "../../assets/images/emptySeat.png";
 import selected from "../../assets/images/selected.png";
@@ -13,6 +13,7 @@ const { Content } = Layout;
 
 function BookingDetails() {
   const location = useLocation();
+  const history = useHistory();
 
   // console.log(location);
   const { tripDetails } = location.state;
@@ -21,6 +22,7 @@ function BookingDetails() {
   // along with passenger details, fare, and contact details
   const [selectedSeats, setSelectedSeats] = useState([]);
   // console.log(selectedSeats);
+
   // from api get seats already taken
   const [seatsTaken] = useState(["6", "7"]);
   // from api get seats reserved for senior
@@ -86,7 +88,10 @@ function BookingDetails() {
     // }
 
     console.log(data);
-    setSummaryVisible(false);
+    // setSummaryVisible(false);
+    history.push("/");
+
+    // booking confirmation prompt display here
   };
 
   return (
@@ -299,13 +304,13 @@ function BookingDetails() {
                   />
                 </Form.Item>
               )}
-              <Button
+              <button
                 className="book-button"
                 htmlType="submit"
                 disabled={selectedSeats.length < 1}
               >
                 Book
-              </Button>
+              </button>
             </div>
           </Form>
         </div>
@@ -317,6 +322,8 @@ function BookingDetails() {
         handleOk={bookSeat}
         tripDetails={tripDetails}
         passengerDetails={passengerArray}
+        farePerSeat={farePerSeat}
+        noOfSeats={selectedSeats.length}
       />
     </Layout>
   );
