@@ -109,6 +109,19 @@
   border-radius: 5px;
 }
 
+.button-disabled {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-self: flex-end;
+  width: 150px;
+  height: 30px;
+  border: 1px solid lightgray;
+  background-color: white;
+  color: lightgray;
+  cursor: not-allowed;
+  border-radius: 5px;
+}
+
 
 .booking-details-container .ant-row {
   margin-bottom: 0;

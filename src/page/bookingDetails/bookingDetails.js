@@ -8,6 +8,7 @@ import selected from "../../assets/images/selected.png";
 import booked from "../../assets/images/bookedSeat.png";
 import SeatmapDefault from "../../components/Seatmap";
 import ConfirmModal from "../../components/modal/confirmModal";
+import { bookingFailed, bookingSuccessful } from "../../utility";
 
 const { Content } = Layout;
 
@@ -79,19 +80,26 @@ function BookingDetails() {
 
   // book seat after confirm modal
   const bookSeat = () => {
-    let data = [selectedSeats, contactDetails, Object.values(passengerDetails)]; // or passenger array?
+    // let data = [selectedSeats, contactDetails, Object.values(passengerDetails)]; // or passenger array?
 
-    // let passedData = {
-    //   selectedSeats,
-    //   contactDetails,
-    //   passengerArray
-    // }
+    let data = {
+      passengerName: Object.values(passengerDetails),
+      seats: selectedSeats,
+      contactDetails,
+    };
+
+    //but when sending in api it really is an object so i think this is not needed...
 
     console.log(data);
     // setSummaryVisible(false);
-    history.push("/");
 
-    // booking confirmation prompt display here
+    // try catch
+    // if success
+    history.push("/");
+    bookingSuccessful();
+
+    // if failed
+    // bookingFailed();
   };
 
   return (
@@ -305,9 +313,10 @@ function BookingDetails() {
                 </Form.Item>
               )}
               <button
-                className="book-button"
-                htmlType="submit"
-                disabled={selectedSeats.length < 1}
+                className={
+                  selectedSeats.length < 1 ? "button-disabled" : "book-button"
+                }
+                type="submit"
               >
                 Book
               </button>
