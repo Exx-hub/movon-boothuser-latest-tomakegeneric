@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import movonLogo from "../../assets/images/movonLogo.png";
 
-import { UserProfile } from "../../utility";
+import { loginSuccessPrompt, UserProfile } from "../../utility";
 
 import { Image, Form, Input, Button, Spin, Space } from "antd";
 import { UserOutlined, LoadingOutlined } from "@ant-design/icons";
@@ -32,7 +32,7 @@ function Login() {
 
     setTimeout(() => {
       setIsLoading(false);
-      alert("Login successful");
+      loginSuccessPrompt();
 
       history.push("/home");
     }, 2000);

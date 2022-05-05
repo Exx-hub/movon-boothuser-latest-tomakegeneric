@@ -1,11 +1,12 @@
 import React from "react";
 import { Modal, Button } from "antd";
-import { UserProfile } from "../../utility";
+import { logoutSuccess, UserProfile } from "../../utility";
 import "./modal.css";
 
 function LogOutModal(props) {
   const handleLogout = () => {
     UserProfile.clearData();
+    logoutSuccess();
     props.history.push("/");
   };
   return (
