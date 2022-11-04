@@ -9,6 +9,7 @@ import booked from "../../assets/images/bookedSeat.png";
 import SeatmapDefault from "../../components/Seatmap";
 import ConfirmModal from "../../components/modal/confirmModal";
 import { bookingFailed, bookingSuccessful } from "../../utility";
+import SeatMapThreeCols from "../../components/Seatmap/SeatMapThreeCols";
 
 const { Content } = Layout;
 
@@ -28,6 +29,7 @@ function BookingDetails() {
   const [seatsTaken] = useState(["6", "7"]);
   // from api get seats reserved for senior
   const [seniorSeats] = useState(["1", "2", "3", "4"]);
+  const [seniorSeatsA] = useState(["1", "2", "3"]);
 
   const [farePerSeat] = useState(633);
 
@@ -125,11 +127,18 @@ function BookingDetails() {
             </div>
           </div>
           <div className="seat-map">
-            <SeatmapDefault
+            {/* <SeatmapDefault
               selectedSeats={selectedSeats}
               setSelectedSeats={setSelectedSeats}
               seatsTaken={seatsTaken}
               seniorSeats={seniorSeats}
+            /> */}
+
+            <SeatMapThreeCols
+              selectedSeats={selectedSeats}
+              setSelectedSeats={setSelectedSeats}
+              seatsTaken={seatsTaken}
+              seniorSeats={seniorSeatsA}
             />
           </div>
         </div>

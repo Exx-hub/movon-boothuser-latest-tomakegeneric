@@ -20,6 +20,7 @@ function SeatmapDefault(props) {
     if (
       !selectedSeats.includes(seatNumber) &&
       !seatsTaken.includes(seatNumber) &&
+      !seniorSeats.includes(seatNumber) &&
       selectedSeats.length < 5
     ) {
       setSelectedSeats([...selectedSeats, seatNumber].sort((a, b) => a - b));

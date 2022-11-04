@@ -1,78 +1,83 @@
 .front-label {
-    text-align: center;
-    background-color: lightgray;
-    width: 80%;
-    margin: 30px auto;
-    border-radius: 6px;
+  text-align: center;
+  background-color: lightgray;
+  width: 80%;
+  margin: 30px auto;
+  border-radius: 6px;
 }
 
 .seats-row {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .seat-div {
-    position: relative;
-    margin-bottom: 5px;
-    margin-right: 5px;
-    height: 50px;
-    width: 55px;
+  position: relative;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  height: 50px;
+  width: 55px;
 
-    cursor: pointer;  
+  cursor: pointer;
 }
 
 .no-cursor {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .available {
-    background-color: white;
+  background-color: white;
 }
 .senior {
-    background-color: #FAD8B3;
+  background-color: #fad8b3;
 }
 .selected {
-    background-color: #9CE8B2;
-    
+  background-color: #9ce8b2;
 }
 .reserved {
-    background-color: #DDDDDD;
+  background-color: #dddddd;
 }
 
-
 .middle-seat {
-    margin: 0 10px
+  margin: 0 10px;
 }
 
 .seat-number {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    font-size: 18px;
-    font-weight: normal;
+  font-size: 18px;
+  font-weight: normal;
 
-    /* to expand through whole image to cover clicking surface  */
-    border: 1px solid transparent;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+  /* to expand through whole image to cover clicking surface  */
+  border: 1px solid transparent;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 .dual-seat-left {
-      margin-right: 37.5px;
-      display: flex;
-      align-items: center;
+  margin-right: 37.5px;
+  display: flex;
+  align-items: center;
 }
 
 .dual-seat-right {
-    margin-left: 37.5px;
-    display: flex;
-    align-items: center;
+  margin-left: 37.5px;
+  display: flex;
+  align-items: center;
 }
 
 .selected-seats {
-    color: #333 !important;
-    font-weight: bolder !important;
+  color: #333 !important;
+  font-weight: bolder !important;
+}
+
+/* // three cols seatmap styles  */
+.three-seat-row {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
 }
