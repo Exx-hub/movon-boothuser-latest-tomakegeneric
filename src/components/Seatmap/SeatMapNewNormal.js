@@ -10,7 +10,7 @@ import booked from "../../assets/images/bookedSeat.png";
 
 // import available from "../../assets/images/seat.png";
 
-function SeatMapThreeCols(props) {
+function SeatMapNewNormal(props) {
   const { selectedSeats, seatsTaken, setSelectedSeats, seniorSeats } = props;
   // console.log(selectedSeats.length < 5);
   // console.log(selectedSeats.length);
@@ -405,4 +405,4 @@ function SeatMapThreeCols(props) {
   );
 }
 
-export default SeatMapThreeCols;
+export default SeatMapNewNormal;

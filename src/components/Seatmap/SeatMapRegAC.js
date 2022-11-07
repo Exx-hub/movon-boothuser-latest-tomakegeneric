@@ -10,7 +10,7 @@ import booked from "../../assets/images/bookedSeat.png";
 
 // import available from "../../assets/images/seat.png";
 
-function SeatmapDefault(props) {
+function SeatMapRegAC(props) {
   const { selectedSeats, seatsTaken, setSelectedSeats, seniorSeats } = props;
   // console.log(selectedSeats.length < 5);
   // console.log(selectedSeats.length);
@@ -546,4 +546,4 @@ function SeatmapDefault(props) {
   );
 }
 
-export default SeatmapDefault;
+export default SeatMapRegAC;

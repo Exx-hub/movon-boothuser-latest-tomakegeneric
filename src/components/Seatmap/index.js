@@ -1,3 +1,5 @@
-import SeatmapDefault from "./SeatmapDefault";
+import SeatMapRegAC from "./SeatMapRegAC";
+import SeatMapNewNormal from "./SeatMapNewNormal";
+import SeatMapPremier from ".SeatMapPremier";
 
-export default SeatmapDefault;
+export { SeatMapRegAC, SeatMapNewNormal, SeatMapPremier };

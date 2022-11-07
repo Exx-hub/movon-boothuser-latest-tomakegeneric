@@ -6,10 +6,11 @@ import senior from "../../assets/images/senior-citizen.png";
 import available from "../../assets/images/emptySeat.png";
 import selected from "../../assets/images/selected.png";
 import booked from "../../assets/images/bookedSeat.png";
-import SeatmapDefault from "../../components/Seatmap";
 import ConfirmModal from "../../components/modal/confirmModal";
 import { bookingFailed, bookingSuccessful } from "../../utility";
-import SeatMapThreeCols from "../../components/Seatmap/SeatMapThreeCols";
+import SeatMapRegAC from "../../components/Seatmap/SeatMapRegAC";
+import SeatMapNewNormal from "../../components/Seatmap/SeatMapNewNormal";
+import SeatMapPremier from "../../components/Seatmap/SeatMapPremier";
 
 const { Content } = Layout;
 
@@ -104,6 +105,40 @@ function BookingDetails() {
     // bookingFailed();
   };
 
+  const seatMapSelect = (busType) => {
+    switch (busType) {
+      case "Reg_AC":
+        return (
+          <SeatMapRegAC
+            selectedSeats={selectedSeats}
+            setSelectedSeats={setSelectedSeats}
+            seatsTaken={seatsTaken}
+            seniorSeats={seniorSeats}
+          />
+        );
+      case "Premier":
+        return (
+          <SeatMapPremier
+            selectedSeats={selectedSeats}
+            setSelectedSeats={setSelectedSeats}
+            seatsTaken={seatsTaken}
+            seniorSeats={seniorSeats}
+          />
+        );
+      case "New_Normal":
+        return (
+          <SeatMapNewNormal
+            selectedSeats={selectedSeats}
+            setSelectedSeats={setSelectedSeats}
+            seatsTaken={seatsTaken}
+            seniorSeats={seniorSeatsA}
+          />
+        );
+      default:
+        return;
+    }
+  };
+
   return (
     <Layout>
       <Content className="booking-details-container">
@@ -127,19 +162,7 @@ function BookingDetails() {
             </div>
           </div>
           <div className="seat-map">
-            {/* <SeatmapDefault
-              selectedSeats={selectedSeats}
-              setSelectedSeats={setSelectedSeats}
-              seatsTaken={seatsTaken}
-              seniorSeats={seniorSeats}
-            /> */}
-
-            <SeatMapThreeCols
-              selectedSeats={selectedSeats}
-              setSelectedSeats={setSelectedSeats}
-              seatsTaken={seatsTaken}
-              seniorSeats={seniorSeatsA}
-            />
+            {seatMapSelect(tripDetails.selectedBus)}
           </div>
         </div>
         <div className="booking-details-right">
