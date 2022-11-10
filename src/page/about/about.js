@@ -5,7 +5,14 @@ import { Image } from "antd";
 import { config } from "../../config";
 
 import aboutLogo from "../../assets/images/aboutLogo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "../../features/count/countSlice";
+
 function About() {
+  const count = useSelector((state) => state.countState.count);
+  const dispatch = useDispatch();
+  const handleIncrement = () => dispatch(increment());
+  const handleDecrement = () => dispatch(decrement());
   return (
     <div className="about-container">
       <div className="image-build-div">
@@ -20,6 +27,11 @@ function About() {
         guaranteed seats. Bus partners can also easily track daily reports for
         transactions and ticket purchases whether done online through the mobile
         app or done via this web app for walk-in transactions.
+      </div>
+      <div>Count Testing: {count}</div>
+      <div>
+        <button onClick={handleIncrement}>Increment</button>
+        <button onClick={handleDecrement}>Decrement</button>
       </div>
       <div className="about-footer">
         <span>

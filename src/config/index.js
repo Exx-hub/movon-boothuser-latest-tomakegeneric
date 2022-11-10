@@ -6,10 +6,10 @@ export const config = {
   },
   version: {
     environment: "",
-    build: "1.0.0(4)",
+    build: "1.0.0(5)",
   },
   environment: "",
-  changeLogs: `feature/seatmap-view/build4`,
+  changeLogs: `feature/global-state-reduxtoolkit/build5`,
 };
 
 export const ERROR_CODES = {
