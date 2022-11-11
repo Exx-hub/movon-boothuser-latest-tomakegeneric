@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../layout/Header";
 import { useHistory, useLocation } from "react-router";
 
 import { Layout, Menu } from "antd";

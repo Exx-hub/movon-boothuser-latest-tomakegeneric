@@ -3,14 +3,14 @@ import "./TripsTable.css";
 
 import { Table, Button } from "antd";
 
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function TripsTable() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const viewSeats = (tripDetails) => {
     const { tripId } = tripDetails;
-    history.push({
+    navigate({
       pathname: `/booking-details/${tripId}`,
       state: { tripDetails },
     });
