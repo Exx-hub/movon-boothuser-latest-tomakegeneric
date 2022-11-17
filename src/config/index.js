@@ -6,10 +6,10 @@ export const config = {
   },
   version: {
     environment: "",
-    build: "1.0.0(5)",
+    build: "1.0.0(6)",
   },
   environment: "",
-  changeLogs: `feature/global-state-reduxtoolkit/build5`,
+  changeLogs: `feature/update-react-router-to-latestversion-v6/build6`,
 };
 
 export const ERROR_CODES = {
