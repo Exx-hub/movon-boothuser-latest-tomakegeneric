@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Header from "../../components/Header";
+import Header from "../../layout/Header";
 import { useHistory, useLocation } from "react-router";
 
 import { Layout, Menu } from "antd";
 import UserProfileModule from "../userProfileModule";
 import BookTicket from "../bookTicket";
+import BookingDetails from "../bookingDetails";
+
 import TransactionHistory from "../transactionHistory";
 import About from "../about";
 import { ChangePassModal, LogOutModal } from "../../components/modal";
 import { config } from "../../config";
 
 const { Content, Sider } = Layout;
-const { SubMenu } = Menu;
 
 function Home() {
   const [changePassVisible, setChangePassVisible] = useState(false);
@@ -29,10 +30,11 @@ function Home() {
   // console.log(pathname);
 
   useEffect(() => {
-    if (pathname === "/book-ticket") setHeaderTitle("Booking List");
+    if (pathname === "/trips") setHeaderTitle("Search Trips");
     if (pathname === "/profile") setHeaderTitle("Profile");
     if (pathname === "/transactions") setHeaderTitle("Transactions");
     if (pathname === "/about") setHeaderTitle("About");
+    if (pathname.includes("booking-details")) setHeaderTitle("Booking Details");
   }, [pathname]);
 
   return (
@@ -48,11 +50,11 @@ function Home() {
             <div className="sider-container">
               <Menu theme="dark" mode="inline" selectedKeys={[pathname]}>
                 <Menu.Item
-                  key={"/book-ticket"}
+                  key={"/trips"}
                   onClick={() => history.push("/")}
                   style={{ margin: 0, height: 50 }}
                 >
-                  Book Ticket
+                  Search Trips
                 </Menu.Item>
                 <Menu.Item
                   key={"/transactions"}
@@ -77,9 +79,14 @@ function Home() {
           <Layout className="home-content">
             <Content>
               <Switch>
-                <Route path="/book-ticket">
+                <Route path="/trips">
                   <BookTicket />
                 </Route>
+
+                <Route path="/booking-details/:tripId">
+                  <BookingDetails />
+                </Route>
+
                 <Route path="/profile">
                   <UserProfileModule />
                 </Route>
@@ -90,7 +97,7 @@ function Home() {
                   <About />
                 </Route>
 
-                <Redirect from="/" to="/book-ticket" />
+                <Redirect from="/" to="/trips" />
               </Switch>
             </Content>
           </Layout>

@@ -6,10 +6,10 @@ export const config = {
   },
   version: {
     environment: "",
-    build: "1.0.0(2)",
+    build: "1.0.0(5)",
   },
   environment: "",
-  changeLogs: `feature/searchTrips-component/build2`,
+  changeLogs: `feature/global-state-reduxtoolkit/build5`,
 };
 
 export const ERROR_CODES = {

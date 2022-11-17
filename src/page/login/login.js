@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import "./login.css";
 import movonLogo from "../../assets/images/movonLogo.png";
 
-import { UserProfile } from "../../utility";
+import { loginSuccessPrompt, UserProfile } from "../../utility";
 
 import { Image, Form, Input, Button, Spin, Space } from "antd";
 import { UserOutlined, LoadingOutlined } from "@ant-design/icons";
 import { config } from "../../config";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onFinish = () => {
     setIsLoading(true);
@@ -32,9 +32,9 @@ function Login() {
 
     setTimeout(() => {
       setIsLoading(false);
-      alert("Login successful");
+      loginSuccessPrompt();
 
-      history.push("/home");
+      navigate("/");
     }, 2000);
   };
 

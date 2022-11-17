@@ -1,23 +1,31 @@
 import React from "react";
 import { Modal, Button } from "antd";
-import { UserProfile } from "../../utility";
+import { logoutSuccess, UserProfile } from "../../utility";
 import "./modal.css";
+import { useNavigate } from "react-router-dom";
 
 function LogOutModal(props) {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     UserProfile.clearData();
-    props.history.push("/");
+    logoutSuccess();
+    navigate("/login");
   };
   return (
     <Modal
       visible={props.visible}
-      className="logout-modal"
+      className="modal"
       onCancel={props.handleCancel}
       footer={[
-        <Button className="cancel-btn" onClick={props.handleCancel}>
+        <Button
+          key={"cancel-button"}
+          className="cancel-btn"
+          onClick={props.handleCancel}
+        >
           Cancel
         </Button>,
-        <Button className="ok-btn" onClick={handleLogout}>
+        <Button key={"ok-button"} className="ok-btn" onClick={handleLogout}>
           Ok
         </Button>,
       ]}

@@ -1,18 +1,35 @@
-import React from "react";
-import "./Header.css";
-import { Button, Menu, Dropdown, Layout, Image } from "antd";
+import React, { useEffect, useState } from "react";
+
+import { Menu, Dropdown, Layout, Image } from "antd";
 import {
   DownOutlined,
   UserOutlined,
   InfoCircleOutlined,
   PoweroffOutlined,
+  LeftOutlined,
 } from "@ant-design/icons";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import movonLogo from "../../assets/images/movonLogo.png";
-import { useHistory } from "react-router";
+import "./Header.css";
+
 const { Header } = Layout;
 
 function _Header(props) {
-  const history = useHistory();
+  const [headerTitle, setHeaderTitle] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { pathname } = location;
+
+  useEffect(() => {
+    if (pathname === "/") setHeaderTitle("Search Trips");
+    if (pathname === "/profile") setHeaderTitle("Profile");
+    if (pathname === "/transactions") setHeaderTitle("Transactions");
+    if (pathname === "/about") setHeaderTitle("About");
+    if (pathname.includes("booking-details")) setHeaderTitle("Booking Details");
+  }, [pathname]);
 
   // console.log(props);
 
@@ -25,7 +42,7 @@ function _Header(props) {
       destination: "/user-profile",
       icon: () => <UserOutlined />,
       // action: () => console.log("clicked user profile "),
-      action: () => history.push("/profile"),
+      action: () => navigate("/profile"),
     },
     {
       key: "drop-down-change-password",
@@ -71,12 +88,22 @@ function _Header(props) {
 
   return (
     <Header className="home-header">
-      <div className="home-header-logo" onClick={() => history.push("/")}>
+      <div className="home-header-logo" onClick={() => navigate("/")}>
         <Image preview={false} className="header-logo" src={movonLogo} alt="" />
       </div>
 
       <div className="home-header-right">
-        <div className="home-header-title">{props.headerTitle}</div>
+        {headerTitle === "Booking Details" ? (
+          <div className="home-header-title">
+            <LeftOutlined
+              onClick={() => navigate("/")}
+              style={{ marginRight: 10 }}
+            />
+            {headerTitle}
+          </div>
+        ) : (
+          <div className="home-header-title">{headerTitle}</div>
+        )}
 
         <Dropdown overlay={menu} trigger={["click"]}>
           <span className="home-header-dropdown-span">

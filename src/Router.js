@@ -1,33 +1,29 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Login from "./page/login";
-import Home from "./page/home";
-import { UserProfile } from "./utility";
+import MainLayout from "./layout/MainLayout";
+import BookTicket from "./page/bookTicket";
+import BookingDetails from "./page/bookingDetails/bookingDetails";
 
-const AppNavigator = (props) => {
-  const ProtectedRoute = (params) => {
-    return UserProfile.getCredential() ? (
-      <Route {...params} render={() => <params.component />} />
-    ) : (
-      <Redirect to="/login" />
-    );
-  };
+import UserProfileModule from "./page/userProfileModule";
+import TransactionHistory from "./page/transactionHistory";
+import About from "./page/about";
+import ProtectedRoutes from "./layout/ProtectedRoutes";
 
+const AppNavigator = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/login">
-          <Login />
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<BookTicket />} />
+          <Route path="booking-details/:tripId" element={<BookingDetails />} />
+          <Route path="profile" element={<UserProfileModule />} />
+          <Route path="transactions" element={<TransactionHistory />} />
+          <Route path="about" element={<About />} />
         </Route>
-        <ProtectedRoute path="/" component={Home} />
-      </Switch>
-    </Router>
+      </Route>
+    </Routes>
   );
 };
 
