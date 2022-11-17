@@ -10,11 +10,13 @@ function TripsTable() {
 
   const viewSeats = (tripDetails) => {
     const { tripId } = tripDetails;
-    navigate({
-      pathname: `/booking-details/${tripId}`,
-      state: { tripDetails },
-    });
+    navigate(`/booking-details/${tripId}`, { state: tripDetails });
   };
+
+  // {
+  //   pathname: `/booking-details/${tripId}`,
+  //   state: { tripDetails },
+  // }
 
   const dataSource = [
     {
