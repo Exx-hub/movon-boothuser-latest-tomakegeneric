@@ -2,12 +2,15 @@ import React from "react";
 import { Modal, Button } from "antd";
 import { logoutSuccess, UserProfile } from "../../utility";
 import "./modal.css";
+import { useNavigate } from "react-router-dom";
 
 function LogOutModal(props) {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     UserProfile.clearData();
     logoutSuccess();
-    props.history.push("/");
+    navigate("/login");
   };
   return (
     <Modal

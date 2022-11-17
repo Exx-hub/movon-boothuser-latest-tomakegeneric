@@ -51,6 +51,7 @@ function ConfirmModal(props) {
             {tripDetails.endStation}
           </div>
           <div className="trip-date">{tripDetails.startDate}</div>
+          <div className="trip-date">{tripDetails.selectedBus}</div>
         </div>
 
         <div className="details-div">

@@ -10,11 +10,17 @@ function ChangePasswordModal(props) {
   });
 
   const handleOk = () => {
-    props.handleOk();
-    alert("changepassword confirmed");
+    // alert("changepassword confirmed");
     console.log("old password:", values.oldPassword);
     console.log("new password:", values.newPassword);
     console.log("confirm password:", values.confirmPass);
+
+    // setValues({
+    //   oldPassword: "",
+    //   newPassword: "",
+    //   confirmPass: "",
+    // });
+    props.handleOk();
 
     // connect to update password api here to update password
   };
@@ -25,6 +31,7 @@ function ChangePasswordModal(props) {
       className="change-password-modal"
       onCancel={props.handleCancel}
       footer={false}
+      destroyOnClose
     >
       <Form onFinish={handleOk}>
         <Form.Item

@@ -89,6 +89,7 @@ function BookingDetails() {
       passengerName: Object.values(passengerDetails),
       seats: selectedSeats,
       contactDetails,
+      tripDetails,
     };
 
     //but when sending in api it really is an object so i think this is not needed...
