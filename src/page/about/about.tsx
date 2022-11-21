@@ -7,9 +7,10 @@ import { config } from "../../config";
 import aboutLogo from "../../assets/images/aboutLogo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../../features/count/countSlice";
+import { FixMeLater } from "../../types/interfaces";
 
 function About() {
-  const count = useSelector((state) => state.countState.count);
+  const count = useSelector<FixMeLater>((state) => state.countState.count);
   const dispatch = useDispatch();
   const handleIncrement = () => dispatch(increment());
   const handleDecrement = () => dispatch(decrement());
@@ -28,6 +29,7 @@ function About() {
         transactions and ticket purchases whether done online through the mobile
         app or done via this web app for walk-in transactions.
       </div>
+      {/* @ts-ignore */}
       <div>Count Testing: {count}</div>
       <div>
         <button onClick={handleIncrement}>Increment</button>

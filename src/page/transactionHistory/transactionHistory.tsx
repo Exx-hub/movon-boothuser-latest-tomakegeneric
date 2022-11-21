@@ -143,6 +143,7 @@ function TransactionHistory() {
           />
           <RangePicker style={{ width: 250, marginRight: 20 }} />
 
+          {/* @ts-ignore  */}
           <Dropdown overlay={menu}>
             <Button className="dropdown-item-btn">
               <DownOutlined /> Download
@@ -161,6 +162,7 @@ function TransactionHistory() {
           rowKey="key"
           // pagination={{ position: ["bottomCenter"], pageSize: 10 }} // pageSize set dropdown
           pagination={false}
+          // @ts-ignore
           columns={tableSource}
           dataSource={dataSource}
         />

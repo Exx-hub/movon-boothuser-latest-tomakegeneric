@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import movonLogo from "../../assets/images/movonLogo.png";
 
-import { loginSuccessPrompt, UserProfile } from "../../utility";
+import { loginSuccessPrompt, UserProfile } from "../../utility/index";
 
 import { Image, Form, Input, Button, Spin, Space } from "antd";
 import { UserOutlined, LoadingOutlined } from "@ant-design/icons";

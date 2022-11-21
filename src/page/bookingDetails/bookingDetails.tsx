@@ -7,10 +7,12 @@ import available from "../../assets/images/emptySeat.png";
 import selected from "../../assets/images/selected.png";
 import booked from "../../assets/images/bookedSeat.png";
 import ConfirmModal from "../../components/modal/confirmModal";
-import { bookingFailed, bookingSuccessful } from "../../utility";
+
 import SeatMapRegAC from "../../components/Seatmap/SeatMapRegAC";
 import SeatMapNewNormal from "../../components/Seatmap/SeatMapNewNormal";
 import SeatMapPremier from "../../components/Seatmap/SeatMapPremier";
+import { FixMeLater } from "../../types/interfaces";
+import { bookingSuccessful } from "../../utility";
 
 const { Content } = Layout;
 
@@ -52,7 +54,7 @@ function BookingDetails() {
   // confirm modal state
   const [summaryVisible, setSummaryVisible] = useState(false);
   // passengerArray with name and seat no
-  const [passengerArray, setPassengerArray] = useState([]);
+  const [passengerArray, setPassengerArray] = useState<FixMeLater>([]);
   // console.log(passengerArray);
 
   // toggles confirm modal, passes passenger list as array with name and seat number.
@@ -73,7 +75,7 @@ function BookingDetails() {
   };
 
   // passenger name change
-  const passengerNameChange = (e) => {
+  const passengerNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setPassengerDetails({
       ...passengerDetails,
@@ -106,7 +108,7 @@ function BookingDetails() {
     // bookingFailed();
   };
 
-  const seatMapSelect = (busType) => {
+  const seatMapSelect = (busType: string) => {
     switch (busType) {
       case "Reg_AC":
         return (
