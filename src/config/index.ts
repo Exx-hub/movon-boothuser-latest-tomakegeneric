@@ -6,10 +6,10 @@ export const config = {
   },
   version: {
     environment: "",
-    build: "1.0.0(6)",
+    build: "1.0.0(7)",
   },
   environment: "",
-  changeLogs: `feature/update-react-router-to-latestversion-v6/build6`,
+  changeLogs: `feature/convert-to-tailwindcss-typescript/build7`,
 };
 
 export const ERROR_CODES = {

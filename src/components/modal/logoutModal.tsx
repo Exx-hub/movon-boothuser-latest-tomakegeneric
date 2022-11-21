@@ -1,10 +1,12 @@
 import React from "react";
 import { Modal, Button } from "antd";
-import { logoutSuccess, UserProfile } from "../../utility";
+
 import "./modal.css";
 import { useNavigate } from "react-router-dom";
+import { FixMeLater } from "../../types/interfaces";
+import { logoutSuccess, UserProfile } from "../../utility";
 
-function LogOutModal(props) {
+function LogOutModal(props: FixMeLater) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -13,6 +15,7 @@ function LogOutModal(props) {
     navigate("/login");
   };
   return (
+    // @ts-ignore
     <Modal
       visible={props.visible}
       className="modal"

@@ -1,4 +1,4 @@
-import React from "react";
+// @ts-nocheck
 import "./SeatmapDefault.css";
 
 import { Image } from "antd";

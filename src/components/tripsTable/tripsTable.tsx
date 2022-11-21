@@ -4,11 +4,12 @@ import "./TripsTable.css";
 import { Table, Button } from "antd";
 
 import { useNavigate } from "react-router-dom";
+import { FixMeLater } from "../../types/interfaces";
 
 function TripsTable() {
   const navigate = useNavigate();
 
-  const viewSeats = (tripDetails) => {
+  const viewSeats = (tripDetails: FixMeLater) => {
     const { tripId } = tripDetails;
     navigate(`/booking-details/${tripId}`, { state: tripDetails });
   };
@@ -98,7 +99,7 @@ function TripsTable() {
       title: "Action",
       key: "action",
       align: "center",
-      render: (tripDetails) => (
+      render: (tripDetails: FixMeLater) => (
         <Button onClick={() => viewSeats(tripDetails)}>View Seats</Button>
       ),
     },
@@ -111,6 +112,7 @@ function TripsTable() {
         // scroll={{ x: true }}
         rowKey="key"
         // pagination={false}
+        // @ts-ignore
         columns={tableSource}
         dataSource={dataSource}
       />
