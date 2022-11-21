@@ -9,6 +9,7 @@ import UserProfileModule from "./page/userProfileModule";
 import TransactionHistory from "./page/transactionHistory";
 import About from "./page/about";
 import ProtectedRoutes from "./layout/ProtectedRoutes";
+import Testing from "./page/testing/testing";
 
 const AppNavigator = () => {
   return (
@@ -21,6 +22,7 @@ const AppNavigator = () => {
           <Route path="profile" element={<UserProfileModule />} />
           <Route path="transactions" element={<TransactionHistory />} />
           <Route path="about" element={<About />} />
+          <Route path="testing" element={<Testing />} />
         </Route>
       </Route>
     </Routes>

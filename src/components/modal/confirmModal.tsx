@@ -2,6 +2,7 @@ import { Modal, Button, Table } from "antd";
 import "./modal.css";
 
 import { CaretRightOutlined } from "@ant-design/icons";
+import { FixMeLater } from "../../types/interfaces";
 
 const tableSource = [
   {
@@ -18,7 +19,7 @@ const tableSource = [
   },
 ];
 
-function ConfirmModal(props) {
+function ConfirmModal(props: FixMeLater) {
   const {
     visible,
     handleCancel,
@@ -29,6 +30,7 @@ function ConfirmModal(props) {
     noOfSeats,
   } = props;
   return (
+    // @ts-ignore
     <Modal
       title="Booking Summary"
       visible={visible}
@@ -57,6 +59,7 @@ function ConfirmModal(props) {
         <div className="details-div">
           <h2>Passenger Details</h2>
           <Table
+            // @ts-ignore
             columns={tableSource}
             dataSource={passengerDetails}
             pagination={false}

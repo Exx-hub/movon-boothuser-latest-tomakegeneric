@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Menu, Dropdown, Layout, Image } from "antd";
 import {
@@ -12,10 +12,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import movonLogo from "../../assets/images/movonLogo.png";
 import "./Header.css";
+import { FixMeLater } from "../../types/interfaces";
 
 const { Header } = Layout;
 
-function _Header(props) {
+function _Header(props: FixMeLater) {
   const [headerTitle, setHeaderTitle] = useState("");
 
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ function _Header(props) {
   };
 
   // FUNCTION FOR SWITCHING NAVIGATION FROM DROWDOWN
-  const onNavigationMenuChange = (e) => {
+  const onNavigationMenuChange = (e: FixMeLater) => {
     for (let i = 0; i < MenuData.length; i++) {
       if (MenuData[i].key === e.key) {
         MenuData[i].action();
@@ -104,7 +105,7 @@ function _Header(props) {
         ) : (
           <div className="home-header-title">{headerTitle}</div>
         )}
-
+        {/*  @ts-ignore */}
         <Dropdown overlay={menu} trigger={["click"]}>
           <span className="home-header-dropdown-span">
             Booth User{" "}

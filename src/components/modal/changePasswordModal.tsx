@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Modal, Button, Form, Input } from "antd";
 import "./modal.css";
+import { FixMeLater } from "../../types/interfaces";
 
-function ChangePasswordModal(props) {
+function ChangePasswordModal(props: FixMeLater) {
   const [values, setValues] = useState({
     oldPassword: "",
     newPassword: "",
@@ -25,6 +26,7 @@ function ChangePasswordModal(props) {
     // connect to update password api here to update password
   };
   return (
+    // @ts-ignore
     <Modal
       title="Change Password"
       visible={props.visible}
